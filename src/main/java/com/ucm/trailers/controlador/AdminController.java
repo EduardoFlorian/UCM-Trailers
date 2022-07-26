@@ -49,7 +49,7 @@ public class AdminController {
 
 		
 		//Retornamos a la vista index y basicamente le mandamos un artibuto con las peliculas y su formato de paginacion
-		return new ModelAndView("/admin/index").addObject("peliculasListado", peliculas);
+		return new ModelAndView("admin/index").addObject("peliculasListado", peliculas);
 	}
 	
 	//INICIO REGISTRAR PELICULA
