@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+
+</head>
+<body>
+	<div layout:fragment="form">
+	
+	<!-- FORMULARIO DE REGISTRO -->
+
+		<form action="" method="post" th:object="${pelicula}" enctype="multipart/form-data">
+			
+			<div class="mb-3">
+				<label for="titulo" class="form-label">Titulo: </label>
+				<input type="text" id="titulo" placeholder="Digite el titulo" class="form-control"
+				th:field="*{titulo}">
+				<div th:errors="*{titulo}" th:if="${#fields.hasErrors('titulo')}" class="invalid-feedback"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="sinopsis" class="form-label">Sinopsis: </label>
+				<textarea id="sinopsis" placeholder="Digite la sinopsis" class="form-control"
+				th:field="*{sinopsis}" maxlength="255"></textarea>
+				<div th:errors="*{sinopsis}" th:if="${#fields.hasErrors('sinopsis')}" class="invalid-feedback"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="fechaEstreno" class="form-label">Fecha de estreno: </label>
+				<input type="date" id="fechaEstreno"  class="form-control"
+				th:field="*{fechaEstreno}">
+				<div th:errors="*{fechaEstreno}" th:if="${#fields.hasErrors('fechaEstreno')}" class="invalid-feedback"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="urlYoutubeTrailer" class="form-label">Youtube Trailer ID: </label>
+				<input type="text" id="urlYoutubeTrailer" placeholder="Ingrese el ID del trailer" class="form-control"
+				th:field="*{urlYoutubeTrailer}">
+				<div th:errors="*{urlYoutubeTrailer}" th:if="${#fields.hasErrors('urlYoutubeTrailer')}" class="invalid-feedback"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="portada" class="form-label">Portada: </label>
+				<input type="file" id="portada" name="portada" class="form-control"
+				th:field="*{portada}">
+				<div th:errors="*{portada}" th:if="${#fields.hasErrors('portada')}" class="invalid-feedback"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="generos" class="form-label">Genero: </label>
+				<select id="generos" th:field="*{generos}" class="form-control" multiple>
+					<option th:each="gen: ${generos}" th:value="${gen.id}" th:text="${gen.titulo}"></option>
+				</select>
+				<div th:errors="*{generos}" th:if="${#fields.hasErrors('generos')}" class="invalid-feedback"></div>
+			</div>
+			
+			<div class="text-end">
+				<button type="submit" class="btn btn-success">Registrar</button>
+				<a href="/admin" class="btn btn-secondary">Cancelar</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{master.html}">
+<head>
+<meta charset="utf-8">
+<title>Editar Película</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+	
+	<!-- FORMULARIO DE REGISTRO -->
+		<h2>Editar Película</h2>
+		<br>
+		<div th:insert="admin/formulario :: form">
+		</div>
+	</div>
+</body>
+</html>
